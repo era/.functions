@@ -1,0 +1,13 @@
+
+
+save_alias () {
+        echo $1 >> ~/.functions/.aliases
+        reload
+}
+reload () {
+        source ~/.zshrc
+}
+save_fun () {
+        which $1 >> ~/.functions/.base
+        reload
+}
