@@ -5,7 +5,7 @@ save_alias () {
         reload
 }
 reload () {
-        source ~/.zshrc
+        exec zsh
 }
 save_fun () {
         which $1 >> ~/.functions/.base
