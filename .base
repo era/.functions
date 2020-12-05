@@ -2,6 +2,11 @@ bindkey -e #Use emacs mode
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] 
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] 
 
+
+mcat () {
+pandoc $1 | lynx -stdin
+}
+
 save_alias () {
         echo $1 >> ~/.functions/.aliases
         reload
