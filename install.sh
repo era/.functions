@@ -1,1 +1,1 @@
-apt-get install alacritty
+apt-get install alacritty fd-find
