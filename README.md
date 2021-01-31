@@ -7,3 +7,4 @@ Needs:
 - bat
 - fd
 - tmux
+- https://github.com/rbreaves/kinto
