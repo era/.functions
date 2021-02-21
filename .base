@@ -18,3 +18,12 @@ save_fun () {
         which $1 >> ~/.functions/.base
         reload
 }
+
+add_codeberg_url () {
+    GITHUB_URL=`git remote -v | grep push | awk ' { print $2 } '`
+    CODEBERG_URL=`echo $GITHUB_URL | sed "s/github.com/codeberg.org/g"`
+
+    git remote set-url --add --push origin $GITHUB_URL
+    git remote set-url --add --push origin $CODEBERG_URL
+}
+
