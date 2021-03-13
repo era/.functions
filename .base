@@ -26,4 +26,6 @@ add_codeberg_url () {
     git remote set-url --add --push origin $GITHUB_URL
     git remote set-url --add --push origin $CODEBERG_URL
 }
-
+rmd_2_pdf () {
+    Rscript -e "lapply(list.files(pattern = 'Rmd|rmd', recursive = TRUE), rmarkdown::render)"
+}
