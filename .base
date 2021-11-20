@@ -5,10 +5,18 @@ bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow]
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+alias vim=nvim
+
+
 alias cat='bat --paging=never'
 mcat () {
 pandoc $1 | lynx -stdin
 }
+
+project () {
+	cd ~/programming/$1; nvim
+}
+
 
 save_alias () {
         echo $1 >> ~/.functions/.aliases
