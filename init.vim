@@ -1,6 +1,7 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -21,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine' 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'tomasiser/vim-code-dark'
-
+Plug 'habamax/vim-polar'
 " Initialize plugin system
 call plug#end()
 
@@ -50,7 +51,6 @@ set clipboard=unnamedplus
 
 	" open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -108,7 +108,7 @@ map <C-v> pi
 imap <C-v> <Esc>pi
 
 set cindent
-colorscheme codedark
+colorscheme polar
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -262,7 +262,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_statusline_ontop=0
-let g:airline_theme='base16_twilight'
 
 let g:airline#extensions#tabline#formatter = 'default'
 " navegação entre os buffers
@@ -272,3 +271,11 @@ nnoremap <c-x> :bp \|bd #<cr>
 
 let g:ale_completion_enabled = 0
 let g:ale_linters = {'python': ['flake8', 'pylint'], 'javascript': ['eslint']}
+
+
+let g:airline_theme='base16_solarized_light'
+
+
+
+
+
