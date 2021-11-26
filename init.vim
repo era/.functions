@@ -275,7 +275,7 @@ let g:ale_linters = {'python': ['flake8', 'pylint'], 'javascript': ['eslint']}
 
 let g:airline_theme='base16_solarized_light'
 
-
+let g:Guifont="Roboto"
 
 
 
