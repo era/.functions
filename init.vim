@@ -12,8 +12,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }"
+"Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'morhetz/gruvbox'
@@ -23,10 +22,13 @@ Plug 'Yggdroot/indentLine'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'tomasiser/vim-code-dark'
 Plug 'habamax/vim-polar'
+"Plug 'wincent/command-t' " Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy Search
+Plug 'numToStr/Comment.nvim' " Comment
 " Initialize plugin system
 call plug#end()
-
-
+lua require('Comment').setup()
+let g:loaded_ruby_provider = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -278,4 +280,20 @@ let g:airline_theme='base16_solarized_light'
 let g:Guifont="Roboto"
 
 
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
 
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>

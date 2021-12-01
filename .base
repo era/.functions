@@ -40,3 +40,6 @@ add_codeberg_url () {
 rmd_2_pdf () {
     Rscript -e "lapply(list.files(pattern = 'Rmd|rmd', recursive = TRUE), rmarkdown::render)"
 }
+
+alias cat='bat --theme=GitHub'
+
