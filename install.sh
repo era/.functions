@@ -1,4 +1,4 @@
-apt-get install neovim zsh git fd-find bat nodejs npm rustc golang build-tools
+apt-get install neovim zsh git fd-find bat nodejs npm rustc golang build-tools build-essential
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 mkdir -p $HOME/.config/nvim

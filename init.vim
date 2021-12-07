@@ -25,6 +25,7 @@ Plug 'habamax/vim-polar'
 "Plug 'wincent/command-t' " Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy Search
 Plug 'numToStr/Comment.nvim' " Comment
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Initialize plugin system
 call plug#end()
 lua require('Comment').setup()
@@ -276,7 +277,6 @@ let g:ale_linters = {'python': ['flake8', 'pylint'], 'javascript': ['eslint']}
 
 
 let g:airline_theme='base16_solarized_light'
-
 
 function! WinMove(key)
     let t:curwin = winnr()
