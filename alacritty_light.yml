@@ -35,6 +35,7 @@ font:
     family: FiraCode Nerd Font Mono
     style: Bold
   size: 16.0
+  use_thin_strokes: true
 
 url:
   launcher:
@@ -46,3 +47,8 @@ window:
   padding:
     x: 0
     y: 0
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
