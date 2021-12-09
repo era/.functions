@@ -40,3 +40,9 @@ url:
   launcher:
     program: open
     args: []
+
+window:
+  decorations: none
+  padding:
+    x: 0
+    y: 0
