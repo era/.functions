@@ -87,7 +87,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='mvim'
 fi
-
+eval "$(starship init zsh)"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
