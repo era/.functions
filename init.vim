@@ -291,4 +291,8 @@ map sl <C-w>l
 " Switch tab
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+nnoremap gd :YcmCompleter GoTo<CR>
+nnoremap gd :call CocActionAsync('jumpDefinition')<CR>
 
+" nnoremap gd :YcmCompleter GetDoc<CR>
+" nnoremap gd :call CocActionAsync('doHover')<CR>

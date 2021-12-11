@@ -5,8 +5,14 @@ bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow]
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias vim=nvim
+# OSX only
+alias ctags="`brew --prefix`/bin/ctags"
 
+alias vim=nvim
+alias ll='exa -l -g --icons'
+
+alias p="cd $HOME/programming"
+alias t="cd $HOME/programming/tools"
 
 alias cat='bat --paging=never'
 mcat () {
