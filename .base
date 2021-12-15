@@ -1,3 +1,6 @@
+# Shit I cannot publish here
+source $HOME/programming/.personal/base.sh
+
 bindkey -e #Use emacs mode
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] 
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] 
