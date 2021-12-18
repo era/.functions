@@ -1,5 +1,8 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-neorg/neorg'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
@@ -299,6 +302,62 @@ nnoremap gd :call CocActionAsync('jumpDefinition')<CR>
 " idea?
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+
+" Neorg related things
+lua << EOF
+local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_configs.norg = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg",
+        files = { "src/parser.c", "src/scanner.cc" },
+        branch = "main"
+    },
+}
+
+parser_configs.norg_meta = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+        files = { "src/parser.c" },
+        branch = "main"
+    },
+}
+
+parser_configs.norg_table = {
+    install_info = {
+        url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+        files = { "src/parser.c" },
+        branch = "main"
+    },
+}
+
+EOF
+
+lua << EOF
+    require('nvim-treesitter.configs').setup {
+    ensure_installed = { "norg", "norg_meta", "norg_table", "haskell", "cpp", "c", "javascript", "markdown" },
+    highlight = { -- Be sure to enable highlights if you haven't!
+        enable = true,
+    }
+    }
+    require('neorg').setup {
+        -- Tell Neorg what modules to load
+        load = {
+            ["core.defaults"] = {}, -- Load all the default modules
+            ["core.norg.concealer"] = {}, -- Allows for use of icons
+            ["core.norg.dirman"] = { -- Manage your directories with Neorg
+                config = {
+                    workspaces = {
+                        my_workspace = "~/programming/neorg"
+                    }
+                }
+            }
+        },
+    }
+EOF
+
+
 
 
 " nnoremap gd :YcmCompleter GetDoc<CR>
