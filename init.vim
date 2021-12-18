@@ -26,6 +26,7 @@ Plug 'habamax/vim-polar'
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy Search
 Plug 'numToStr/Comment.nvim' " Comment
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-markdown'
 " Initialize plugin system
 call plug#end()
 lua require('Comment').setup()
@@ -293,6 +294,12 @@ nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 nnoremap gd :YcmCompleter GoTo<CR>
 nnoremap gd :call CocActionAsync('jumpDefinition')<CR>
+
+" Fuckinng anoying markown plugin hidding links ffs who thought it was a good
+" idea?
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 
 " nnoremap gd :YcmCompleter GetDoc<CR>
 " nnoremap gd :call CocActionAsync('doHover')<CR>
