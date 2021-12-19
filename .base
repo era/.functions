@@ -62,3 +62,5 @@ di () {
 ide() {
     tmux split-window -v -p 30
 }
+
+alias ls="exa"
