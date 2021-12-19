@@ -1,5 +1,6 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'phaazon/hop.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-neorg/neorg'
@@ -306,6 +307,19 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 " Neorg related things
 lua << EOF
+
+vim.cmd[[ hi HopNextKey cterm=bold ctermfg=176 gui=bold guibg=#ff00ff guifg=#ffffff ]]
+vim.cmd[[ hi HopNextKey1 cterm=bold ctermfg=176 gui=bold guibg=#ff00ff guifg=#ffffff ]]
+vim.cmd[[ hi HopNextKey2 cterm=bold ctermfg=176 gui=bold guibg=#ff00ff guifg=#ffffff ]]
+
+require('hop').setup({
+  case_insensitive = true,
+  char2_fallback_key = '<CR>',
+})
+
+vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1()<cr>", {noremap = true})
+
+
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
 parser_configs.norg = {
@@ -335,6 +349,7 @@ parser_configs.norg_table = {
 EOF
 
 lua << EOF
+    require'hop'.setup()
     require('nvim-treesitter.configs').setup {
     ensure_installed = { "norg", "norg_meta", "norg_table", "haskell", "cpp", "c", "javascript", "markdown" },
     highlight = { -- Be sure to enable highlights if you haven't!
