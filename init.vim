@@ -2,6 +2,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'phaazon/hop.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-orgmode/orgmode'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-neorg/neorg'
 Plug 'vim-airline/vim-airline'
@@ -359,6 +361,11 @@ lua << EOF
     require('neorg').setup {
         -- Tell Neorg what modules to load
         load = {
+            ["core.norg.completion"] = {
+                config = {
+                    engine = "nvim-cmp" -- We current support nvim-compe and nvim-cmp only
+                }
+            },
             ["core.defaults"] = {}, -- Load all the default modules
             ["core.keybinds"] = { -- Configure core.keybinds
                     config = {
@@ -378,7 +385,32 @@ lua << EOF
     }
 EOF
 
+lua << EOF
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.org = {
+  install_info = {
+    url = 'https://github.com/milisims/tree-sitter-org',
+    revision = 'f110024d539e676f25b72b7c80b0fd43c34264ef',
+    files = {'src/parser.c', 'src/scanner.cc'},
+  },
+  filetype = 'org',
+}
 
+require'nvim-treesitter.configs'.setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
+
+require('orgmode').setup({
+  org_agenda_files = {'~/programming/neorg/**/*'},
+  org_default_notes_file = '~/programming/neorg/refile.org',
+})
+EOF
 
 
 " nnoremap gd :YcmCompleter GetDoc<CR>

@@ -47,6 +47,7 @@ window:
   padding:
     x: 0
     y: 0
+  opacity: 0.5
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
