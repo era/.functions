@@ -7,11 +7,6 @@ bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow]
 
 eval $(thefuck --alias)
 alias torrent="aria2c"
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-
-# OSX only
-alias ctags="`brew --prefix`/bin/ctags"
 
 alias vim=nvim
 alias ll='exa -l -g --icons'
