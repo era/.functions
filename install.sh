@@ -14,3 +14,5 @@ ln -s $HOME/programming/.functions/.zshrc  $HOME/.zshrc
 
 # Desktop only
 apt-get install alacritty
+rm $HOME/.alacritty.yml
+ln -s $HOME/programming/.functions/alacritty_light.yml $HOME/.alacritty.yml
