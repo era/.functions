@@ -5,7 +5,19 @@ bindkey -e #Use emacs mode
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] 
 bindkey '^[[1;5D' backward-word # [Ctrl-LeftArrow] 
 
+# Defines which OS this is
+# in order to import the right
+# set of function and aliases for the platform
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   source $HOME/programming/.functions/linux.sh
+else
+   source $HOME/programming/.functions/osx.sh
+fi
+
+
 eval $(thefuck --alias)
+
 alias torrent="aria2c"
 
 alias vim=nvim
@@ -15,6 +27,11 @@ alias p="cd $HOME/programming"
 alias t="cd $HOME/programming/tools"
 
 alias cat='bat --paging=never'
+alias ls="exa"
+
+alias cat='bat --theme=GitHub'
+
+
 mcat () {
 pandoc $1 | lynx -stdin
 }
@@ -47,9 +64,6 @@ rmd_2_pdf () {
     Rscript -e "lapply(list.files(pattern = 'Rmd|rmd', recursive = TRUE), rmarkdown::render)"
 }
 
-alias cat='bat --theme=GitHub'
-
-
 di () {
     sh $HOME/programming/docker/$1.sh
 }
@@ -58,4 +72,3 @@ ide() {
     tmux split-window -v -p 30
 }
 
-alias ls="exa"
