@@ -26,10 +26,9 @@ alias ll='exa -l -g --icons'
 alias p="cd $HOME/programming"
 alias t="cd $HOME/programming/tools"
 
-alias cat='bat --paging=never'
 alias ls="exa"
 
-alias cat='bat --theme=GitHub'
+alias cat='bat'
 
 
 mcat () {

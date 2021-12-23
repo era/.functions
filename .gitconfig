@@ -14,7 +14,7 @@
     syntax-theme = ansi-light
 
 [interactive]
-    diffFilter = delta --color-only --light
+    diffFilter = delta --color-only
 [receive]
 	advertisePushOptions = true
 	procReceiveRefs = refs/for
