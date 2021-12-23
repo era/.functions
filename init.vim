@@ -32,7 +32,8 @@ Plug 'habamax/vim-polar'
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy Search
 Plug 'numToStr/Comment.nvim' " Comment
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-markdown'
+Plug 'vimwiki/vimwiki'
 " Initialize plugin system
 call plug#end()
 lua require('Comment').setup()
@@ -301,10 +302,7 @@ nmap <Tab> :tabnext<Return>
 nnoremap gd :YcmCompleter GoTo<CR>
 nnoremap gd :call CocActionAsync('jumpDefinition')<CR>
 
-" Fuckinng anoying markown plugin hidding links ffs who thought it was a good
-" idea?
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
+
 
 
 " Neorg related things
@@ -412,6 +410,20 @@ require('orgmode').setup({
 })
 EOF
 
+" VIM WIKI
+set nocompatible
+filetype plugin on
+syntax on
+
+let g:vimwiki_list = [{'path': '~/programming/wiki.anarchist-/', 'syntax': 'markdown', 'ext': '.md'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+" Fuckinng anoying markown plugin hidding links ffs who thought it was a good
+" idea?
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:conceallevel=0
+autocmd FileType markdown set conceallevel=0
 
 " nnoremap gd :YcmCompleter GetDoc<CR>
 " nnoremap gd :call CocActionAsync('doHover')<CR>
