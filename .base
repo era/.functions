@@ -71,3 +71,14 @@ ide() {
     tmux split-window -v -p 30
 }
 
+# Create a new project
+# Source code at CODEBERG
+# README pointing to CODEBERG at GIHUB
+# Folder with git init, still needs to handle GO projects (and go path)
+new_project() {
+   curl -k -H "content-type: application/json" --data "{\"name\":\"$1\"}" "https://codeberg.org/api/v1/user/repos?access_token=$CODEBERG_KEY"
+   curl -H "Authorization: token $GITHUB_KEY" --data  "{\"name\":\"$1\"}" https://api.github.com/user/repos
+   git clone "git@codeberg.org:era/$1.git" $HOME/programming/$1
+   git clone "git@github.com:era/$1.git" $HOME/programming/github/$1
+   echo "The code for this repo is at https://codeberg.org/era/$1" > $HOME/programming/github/$1/README.md
+}
