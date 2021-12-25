@@ -18,7 +18,7 @@ fi
 
 eval $(thefuck --alias)
 
-alias torrent="aria2c"
+alias torrent="aria2c --conf-path=$HOME/programming/.functions/aria2.conf"
 
 alias vim=nvim
 alias ll='exa -l -g --icons'
