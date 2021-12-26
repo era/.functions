@@ -10,6 +10,7 @@ nvim +'PlugInstall' +qa --headless
 
 rm $HOME/.zshrc
 
+# Should really use gnu stow
 ln -s $HOME/programming/.functions/.zshrc  $HOME/.zshrc
 
 # Desktop only
