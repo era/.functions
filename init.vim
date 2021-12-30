@@ -1,6 +1,7 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'phaazon/hop.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-orgmode/orgmode'
@@ -433,6 +434,17 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:conceallevel=0
 autocmd FileType markdown set conceallevel=0
+
+
+" Refactoring, only works with  Python and Go
+"
+
+lua <<EOF
+vim.api.nvim_set_keymap("v", "<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
+EOF
 
 " nnoremap gd :YcmCompleter GetDoc<CR>
 " nnoremap gd :call CocActionAsync('doHover')<CR>
