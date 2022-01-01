@@ -1,5 +1,6 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'wlangstroth/vim-racket'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'phaazon/hop.nvim'
