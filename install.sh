@@ -19,3 +19,7 @@ rm $HOME/.alacritty.yml
 ln -s $HOME/programming/.functions/alacritty_light.yml $HOME/.alacritty.yml
 
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+
+
+# NEEds golang
+go install github.com/barthr/redo@latest

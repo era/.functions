@@ -1,5 +1,6 @@
 # Shit I cannot publish here
 source $HOME/programming/.personal/base.sh
+export PATH=$PATH:$HOME/go/bin/
 
 bindkey -e #Use emacs mode
 bindkey '^[[1;5C' forward-word # [Ctrl-RightArrow] 
@@ -15,6 +16,9 @@ else
    source $HOME/programming/.functions/osx.sh
 fi
 
+export REDO_HISTORY_PATH=$HOME/.zsh_history
+
+source "$(redo alias-file)"
 
 eval $(thefuck --alias)
 

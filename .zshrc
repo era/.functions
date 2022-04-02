@@ -101,4 +101,4 @@ eval "$(starship init zsh)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-
+export PATH=$PATH:~/.config/yarn/link
