@@ -100,5 +100,10 @@ eval "$(starship init zsh)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=/usr/bin:$PATH
 
-export PATH=$PATH:~/.config/yarn/link
+#export PATH=$PATH:~/.config/yarn/link
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
