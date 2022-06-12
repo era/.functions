@@ -23,3 +23,5 @@ git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 
 # NEEds golang
 go install github.com/barthr/redo@latest
+
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) # install lvim as well
