@@ -108,3 +108,4 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
 alias new_project="bb $HOME/programming/scripting-clj/git/new-project.cljs"
+alias wiki_page="cp $HOME/programming/wiki.anarchist-/template.md.tp" $HOME/programming/wiki.anarchist-/ 
