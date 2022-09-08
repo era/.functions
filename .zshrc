@@ -68,7 +68,7 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-z)
+#plugins=(zsh-z)
 source $ZSH/oh-my-zsh.sh
 
 source ~/programming/.functions/.base
@@ -87,7 +87,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='mvim'
 fi
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -109,3 +109,8 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 alias new_project="bb $HOME/programming/scripting-clj/git/new-project.cljs"
 alias wiki_page="cp $HOME/programming/wiki.anarchist-/template.md.tp" $HOME/programming/wiki.anarchist-/ 
+
+source $HOME/.cargo/env
+export PATH=$PATH:/home/era/.local/bin
+setxkbmap -layout us -variant intl
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

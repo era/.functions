@@ -1,5 +1,5 @@
 # Shit I cannot publish here
-source $HOME/programming/.personal/base.sh
+#source $HOME/programming/.personal/base.sh
 export PATH=$PATH:$HOME/go/bin/
 
 bindkey -e #Use emacs mode
@@ -18,19 +18,18 @@ fi
 
 export REDO_HISTORY_PATH=$HOME/.zsh_history
 
-source "$(redo alias-file)"
+#source "$(redo alias-file)"
 
 eval $(thefuck --alias)
 
 alias torrent="aria2c --conf-path=$HOME/programming/.functions/aria2.conf"
 
 alias vim=nvim
-alias ll='exa -l -g --icons'
+#alias ll='exa -l -g --icons'
 
 alias p="cd $HOME/programming"
 alias t="cd $HOME/programming/tools"
-
-alias ls="exa"
+#alias ls="exa"
 
 alias cat='bat'
 

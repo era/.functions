@@ -88,27 +88,12 @@ schemes:
       white:   '0xacb0d0'
 
 
-font:
-  normal:
-    family: FiraCode Nerd Font Mono
-    style: Regular
-
-  bold:
-    family: FiraCode Nerd Font Mono
-    style: Bold
-  size: 16.0
-  use_thin_strokes: true
-
 url:
   launcher:
     program: open
     args: []
 
 window:
-  decorations: none
-  padding:
-    x: 0
-    y: 0
   opacity: 0.5
 
 background_opacity: 0.92
